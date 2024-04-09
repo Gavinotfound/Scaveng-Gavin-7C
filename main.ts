@@ -7,25 +7,18 @@ scene.onOverlapTile(SpriteKind.Player, assets.tile`myTile0`, function (sprite, l
     game.over(false, effects.slash)
     music.wawawawaa.playUntilDone()
 })
+function Variables_Init () {
+    BookPossesion_Enchiridion = false
+}
 sprites.onOverlap(SpriteKind.Player, SpriteKind.Enemy, function (sprite8, otherSprite2) {
     otherSprite2.destroy(effects.ashes, 100)
-    scene.cameraShake(2, 200)
     info.changeLifeBy(-1)
+    scene.cameraShake(2, 200)
 })
 scene.onOverlapTile(SpriteKind.Player, assets.tile`myTile12`, function (sprite4, location3) {
-    story.startCutscene(function () {
-        story.printDialog("A bag. Open it?", 80, 90, 50, 150)
-        story.showPlayerChoices("Yes", "No")
-        if (story.checkLastAnswer("Yes")) {
-            story.printDialog("You found a book.", 80, 90, 50, 150)
-            story.printDialog("Carpenter", 80, 90, 50, 150)
-            BagOpened += 1
-        } else {
-            story.printDialog("Okay.", 80, 90, 50, 150)
-            info.setLife(0)
-        }
-        story.cancelCurrentCutscene()
-    })
+    BookPossesion_Enchiridion = true
+    scene.cameraShake(4, 500)
+    story.printCharacterText("You got a book.")
 })
 function Level_Spawn_Points () {
     // This is a spawn point on the tilemap for the hero. This tile will be replaced by the hero sprite
@@ -35,49 +28,9 @@ function Level_Spawn_Points () {
     }
     // This is a spawn point for rewards. This tile will be replaced by your reward sprite. The art should be replaced with yours.
     for (let value2 of tiles.getTilesByType(assets.tile`Reward Spawn`)) {
-        Reward2 = sprites.create(img`
-            ffffffffffffffffffffffffffffffff
-            f336666333666333366663666663333f
-            f336336333666633363663636363333f
-            f336663336666633363633663663333f
-            f333333333333333366633333333333f
-            f333333333333333336333333333333f
-            f333333333333333333333333333333f
-            f333373333333333333333333333333f
-            f337777737733777377737773733733f
-            f337373333733737373737373737333f
-            f337777733733737373737373773333f
-            f333373733733737373737373737333f
-            f337777737773777377737773733733f
-            f333373333333333333333333333333f
-            f333333333333333333333333333333f
-            ffffffffffffffffffffffffffffffff
-            `, SpriteKind.Reward)
-        tiles.placeOnTile(Reward2, value2)
+        let RewardVariable: Sprite = null
+        tiles.placeOnTile(RewardVariable, value2)
         tiles.setTileAt(value2, assets.tile`transparency16`)
-    }
-    // This is a spawn point for rewards. This tile will be replaced by your reward sprite. The art should be replaced with yours.
-    for (let value3 of tiles.getTilesByType(assets.tile`Enemy Spawn Points`)) {
-        BadGuy1 = sprites.create(img`
-            . . . . . . . . . . . . . . . . 
-            . . . . . . . . . . . . . . . . 
-            . . . . . . . . . . . . . . . . 
-            . . . . . . . . . . . . . . . . 
-            . . . . . . . . . . . . . . . . 
-            . . . 2 2 . . . . . 2 2 . . . . 
-            . . . 2 2 . . . . . 2 2 . . . . 
-            . . . . . . . . . . . . . . . . 
-            . . . . . . . . . . . . . . . . 
-            . . . . . 2 2 2 2 2 2 2 2 . . . 
-            . . . . 2 2 . . . . . . 2 2 . . 
-            . . . 2 2 . . . . . . . . 2 . . 
-            . . . 2 . . . . . . . . . 2 2 . 
-            . . 2 . . . . . . . . . . . 2 . 
-            . . . . . . . . . . . . . . . . 
-            . . . . . . . . . . . . . . . . 
-            `, SpriteKind.Enemy)
-        tiles.placeOnTile(BadGuy1, value3)
-        tiles.setTileAt(value3, assets.tile`transparency16`)
     }
 }
 function Starting_Game_Mechanics () {
@@ -99,10 +52,6 @@ controller.A.onEvent(ControllerButtonEvent.Pressed, function () {
         Hero.vy = -100
         canDoubleJump = false
     }
-})
-scene.onOverlapTile(SpriteKind.Player, sprites.dungeon.hazardLava1, function (sprite5, location4) {
-    game.over(false, effects.melt)
-    music.wawawawaa.playUntilDone()
 })
 sprites.onOverlap(SpriteKind.Player, SpriteKind.Reward, function (sprite3, otherSprite) {
     otherSprite.destroy(effects.confetti, 500)
@@ -256,7 +205,7 @@ function start_level () {
     }
 }
 info.onLifeZero(function () {
-    game.over(false, effects.melt)
+    game.over(false, effects.splatter)
 })
 scene.onOverlapTile(SpriteKind.Player, assets.tile`myTile`, function (sprite2, location2) {
     current_level += 1
@@ -264,10 +213,8 @@ scene.onOverlapTile(SpriteKind.Player, assets.tile`myTile`, function (sprite2, l
     Level_Spawn_Points()
 })
 let canDoubleJump = false
-let BadGuy1: Sprite = null
-let Reward2: Sprite = null
 let Hero: Sprite = null
-let BagOpened = 0
+let BookPossesion_Enchiridion = false
 let current_level = 0
 Starting_Game_Mechanics()
 current_level = 0
