@@ -13,6 +13,15 @@ sprites.onOverlap(SpriteKind.Player, SpriteKind.Enemy, function (sprite8, otherS
     scene.cameraShake(2, 200)
     info.changeLifeBy(-1)
 })
+controller.combos.attachCombo("u+d+b+a", function () {
+    info.setLife(999999)
+    ResourceAmount = 999999
+    controller.moveSprite(Hero, 100, 100)
+    story.startCutscene(function () {
+        story.printDialog("Developer Mode Triggered", 80, 90, 50, 150)
+        story.cancelCurrentCutscene()
+    })
+})
 controller.B.onEvent(ControllerButtonEvent.Pressed, function () {
     if (Spectate == 1) {
         Spectate += -1
@@ -65,6 +74,11 @@ function Level_Spawn_Points () {
         tiles.setTileAt(value3, assets.tile`transparency16`)
     }
 }
+controller.combos.attachCombo("uuddlrlra", function () {
+    game.splash("コナミグループ!")
+    info.changeLifeBy(1)
+    ResourceAmount += 10
+})
 function Starting_Game_Mechanics () {
     Hero = sprites.create(assets.image`myImage0`, SpriteKind.Player)
     scene.cameraFollowSprite(Hero)
@@ -767,6 +781,8 @@ function BKeyPressed (OnShield: boolean) {
     }
 }
 function Init () {
+    controller.combos.setExtendedComboMode(true)
+    controller.combos.setTimeout(400)
     scroller.setBackgroundScrollOffset(0, 15)
     scroller.scrollBackgroundWithCamera(scroller.CameraScrollMode.BothDirections)
     game.setGameOverPlayable(false, music.melodyPlayable(music.wawawawaa), false)
@@ -791,7 +807,6 @@ scene.onOverlapTile(SpriteKind.Player, assets.tile`myTile9`, function (sprite6, 
     game.over(false, effects.dissolve)
 })
 let myDart: Dart = null
-let ResourceAmount = 0
 let statusbar: StatusBarSprite = null
 let list: number[] = []
 let Spectator: Sprite = null
@@ -800,9 +815,10 @@ let canDoubleJump = false
 let BadGuy1: Sprite = null
 let Resource: Sprite = null
 let Reward2: Sprite = null
-let Hero: Sprite = null
 let ShieldStatus = 0
 let Spectate = 0
+let Hero: Sprite = null
+let ResourceAmount = 0
 let current_level = 0
 Starting_Game_Mechanics()
 current_level = 0
