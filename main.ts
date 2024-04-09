@@ -2,6 +2,7 @@ namespace SpriteKind {
     export const Coin = SpriteKind.create()
     export const Health = SpriteKind.create()
     export const Reward = SpriteKind.create()
+    export const Resource = SpriteKind.create()
 }
 scene.onOverlapTile(SpriteKind.Player, assets.tile`myTile0`, function (sprite, location) {
     game.over(false, effects.slash)
@@ -42,6 +43,12 @@ function Level_Spawn_Points () {
             ffffffffffffffffffffffffffffffff
             `, SpriteKind.Reward)
         tiles.placeOnTile(Reward2, value2)
+        tiles.setTileAt(value2, assets.tile`transparency16`)
+    }
+    // This is a spawn point for rewards. This tile will be replaced by your reward sprite. The art should be replaced with yours.
+    for (let value2 of tiles.getTilesByType(assets.tile`myTile8`)) {
+        Resource = sprites.create(assets.image`myImage`, SpriteKind.Resource)
+        tiles.placeOnTile(Resource, value2)
         tiles.setTileAt(value2, assets.tile`transparency16`)
     }
     // This is a spawn point for rewards. This tile will be replaced by your reward sprite. The art should be replaced with yours.
@@ -95,15 +102,22 @@ scene.onOverlapTile(SpriteKind.Player, sprites.dungeon.hazardLava1, function (sp
 sprites.onOverlap(SpriteKind.Player, SpriteKind.Reward, function (sprite3, otherSprite) {
     otherSprite.destroy(effects.confetti, 500)
     music.baDing.play()
-    info.changeScoreBy(1)
+    info.changeScoreBy(20)
     scene.cameraShake(2, 100)
 })
 scene.onOverlapTile(SpriteKind.Player, sprites.dungeon.hazardWater, function (sprite6, location5) {
     game.over(false, effects.slash)
     music.wawawawaa.playUntilDone()
 })
+sprites.onOverlap(SpriteKind.Player, SpriteKind.Resource, function (sprite3, otherSprite) {
+    otherSprite.destroy(effects.confetti, 500)
+    ResourceAmount += 1
+    music.baDing.play()
+    info.changeScoreBy(10)
+    scene.cameraShake(2, 100)
+})
 function InitVariable () {
-	
+    ResourceAmount = 0
 }
 scene.onOverlapTile(SpriteKind.Player, sprites.dungeon.chestOpen, function (sprite7, location6) {
     game.over(true, effects.confetti)
@@ -254,8 +268,19 @@ scene.onOverlapTile(SpriteKind.Player, assets.tile`myTile`, function (sprite2, l
     start_level()
     Level_Spawn_Points()
 })
+function StatusBKey () {
+    statusbar = statusbars.create(20, 4, StatusBarKind.Health)
+    statusbar.setColor(9, 3)
+    statusbar.attachToSprite(Hero)
+    statusbar.setStatusBarFlag(StatusBarFlag.SmoothTransition, true)
+    statusbar.value = ResourceAmount
+    statusbar.max = 10
+}
+let statusbar: StatusBarSprite = null
+let ResourceAmount = 0
 let canDoubleJump = false
 let BadGuy1: Sprite = null
+let Resource: Sprite = null
 let Reward2: Sprite = null
 let Hero: Sprite = null
 let current_level = 0
@@ -264,8 +289,12 @@ current_level = 0
 start_level()
 Level_Spawn_Points()
 InitVariable()
+StatusBKey()
 game.onUpdate(function () {
     if (Hero.isHittingTile(CollisionDirection.Bottom)) {
         canDoubleJump = true
     }
+})
+game.onUpdate(function () {
+    statusbar.value = ResourceAmount
 })

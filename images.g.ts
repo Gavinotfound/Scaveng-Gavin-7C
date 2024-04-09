@@ -296,6 +296,29 @@ ffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff
 ....1.......1...
 ....f.......f...
 `;
+            case "image7":
+            case "myImage":return img`
+....bbbbbbbbbbbbbbbbbbbbbb....
+....bbaaaaaaaaacccccbaaaaab...
+...bbbbbbbbbbbbbbbbbacaaaaab..
+..bbaaaaaaaacccc6bbaccaacaaab.
+..bbbbbbbbbbbbbbbbaccaaccccaab
+.bbaaaaaaacccc66bbacaaccaaacab
+.bbbbbbbbbbbbbbbbbacaacaaaacab
+.baaaaaacccc666bbbacacaaccacab
+.bbbbbbbbbbbbbbbbbacacaaaaccab
+.bbaaaccc666666bbbacaccaaaccab
+..bbbbbbbbbbbbbbbbacaaccccccab
+..bbaacc666666666bbacaaaaaccab
+...bbbbbbbbbbbbbb66bcccccccab.
+....bbbbbbbbbbbbbbbbbbbbbbbb..
+...66666666666666666666666666.
+.6663333333333333333333333636.
+.6666666666666666666666666666.
+66633333333333333333333363636.
+66666666666666666666666666666.
+66633333333333333333336363636.
+`;
         }
         return null;
     })

@@ -34,6 +34,11 @@
         "mimeType": "image/x-mkcd-f4",
         "displayName": "Enemy1"
     },
+    "image7": {
+        "data": "hwQeABQAAAAAAAAAAAAAAGBmAAAAALC7uwAAYGZmAAAAsLuru7sAYGZmAAAAu6urq7sLZjY2AAC7q6urq6u7NjY2AAC7q6urq6u7NjY2AACrq6ury8u7NjY2AACrq6ury8u7NjY2AACrq6vLy2u7NjY2AACrq6vLa2u7NjY2AACrq8vLa2u7NjY2AACrq8vLa2u7NjY2AACry8tra2u7NjY2AACry8tra2u7NjY2AACry2tra2u7NjY2AADLy2u7u2u7NjY2AADLa7u7u2u7NjY2AADLu7u7u7u2NjY2AADLu6qqqrq2NjY2AADLq8zMzKy7NjY2AAC7yqyqqsq8NjY2AACrzKrKzKq8NjY2AACrqsqsyqy8NjZmAACrqsyqqqy8NjY2AACryqzKqqy8NmZmAACrqqzKqqy8NjY2AACwqqyqzMy8ZmZmAAAAq8rMzMy6NjY2AAAAsKqqqqoLZmZmAAAAALu7u7sAAAAAAAA=",
+        "mimeType": "image/x-mkcd-f4",
+        "displayName": "myImage"
+    },
     "*": {
         "mimeType": "image/x-mkcd-f4",
         "dataEncoding": "base64",
