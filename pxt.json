@@ -1,5 +1,5 @@
 {
-    "name": "MyGame Gavin 7C",
+    "name": "Scavenge_Gavin_7C",
     "description": "",
     "dependencies": {
         "device": "*",
@@ -39,7 +39,7 @@
     "supportedTargets": [
         "arcade"
     ],
-    "preferredEditor": "pyprj",
+    "preferredEditor": "blocksprj",
     "palette": [
         "#000000",
         "#FFE2D6",
