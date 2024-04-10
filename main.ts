@@ -267,6 +267,7 @@ function ExitSpectate () {
         story.cancelCurrentCutscene()
     })
     sprites.destroyAllSpritesOfKind(SpriteKind.SpectatorSprite)
+    StatusBarFunc()
     Starting_Game_Mechanics()
     start_level()
     Level_Spawn_Points()
@@ -782,7 +783,7 @@ function BKeyPressed (OnShield: boolean) {
 }
 function Init () {
     controller.combos.setExtendedComboMode(true)
-    controller.combos.setTimeout(400)
+    controller.combos.setTimeout(1000)
     scroller.setBackgroundScrollOffset(0, 15)
     scroller.scrollBackgroundWithCamera(scroller.CameraScrollMode.BothDirections)
     game.setGameOverPlayable(false, music.melodyPlayable(music.wawawawaa), false)
