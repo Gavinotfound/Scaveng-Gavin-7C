@@ -6,7 +6,7 @@ namespace SpriteKind {
     export const SpectatorSprite = SpriteKind.create()
 }
 scene.onOverlapTile(SpriteKind.Player, assets.tile`myTile0`, function (sprite, location) {
-    game.over(false, effects.splatter)
+    sprite.setVelocity(sprite.vx * -1, -90)
 })
 sprites.onOverlap(SpriteKind.Player, SpriteKind.Enemy, function (sprite8, otherSprite2) {
     otherSprite2.destroy(effects.ashes, 100)
@@ -405,7 +405,7 @@ function StatusBarFunc () {
     statusbar.setColor(9, 3)
     statusbar.setStatusBarFlag(StatusBarFlag.SmoothTransition, true)
     statusbar.value = ResourceAmount
-    statusbar.max = 10
+    statusbar.max = 30
     statusbar.attachToSprite(Hero)
 }
 sprites.onOverlap(SpriteKind.Player, SpriteKind.Resource, function (sprite3, otherSprite) {
@@ -547,8 +547,10 @@ function start_level () {
             dddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddd
             `)
     } else if (current_level == 1) {
+        effects.blizzard.startScreenEffect()
         tiles.setCurrentTilemap(tilemap`level5`)
     } else if (current_level == 2) {
+        effects.blizzard.endScreenEffect()
         tiles.setCurrentTilemap(tilemap`level18`)
     } else if (current_level == 3) {
         game.gameOver(true)
