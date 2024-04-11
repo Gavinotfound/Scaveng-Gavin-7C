@@ -6,21 +6,17 @@ namespace SpriteKind {
     export const SpectatorSprite = SpriteKind.create()
 }
 scene.onOverlapTile(SpriteKind.Player, assets.tile`myTile0`, function (sprite, location) {
-    game.over(false, effects.splatter)
+    if (ShieldStatus == 1) {
+        sprite.setImage(assets.image`myImage0`)
+    } else {
+        sprite.setVelocity(sprite.vx, -100)
+        info.changeLifeBy(-1)
+    }
 })
 sprites.onOverlap(SpriteKind.Player, SpriteKind.Enemy, function (sprite8, otherSprite2) {
     otherSprite2.destroy(effects.ashes, 100)
     scene.cameraShake(2, 200)
     info.changeLifeBy(-1)
-})
-controller.combos.attachCombo("u+d+b+a", function () {
-    info.setLife(999999)
-    ResourceAmount = 999999
-    controller.moveSprite(Hero, 100, 100)
-    story.startCutscene(function () {
-        story.printDialog("Developer Mode Triggered", 80, 90, 50, 150)
-        story.cancelCurrentCutscene()
-    })
 })
 controller.B.onEvent(ControllerButtonEvent.Pressed, function () {
     if (Spectate == 1) {
@@ -405,7 +401,7 @@ function StatusBarFunc () {
     statusbar.setColor(9, 3)
     statusbar.setStatusBarFlag(StatusBarFlag.SmoothTransition, true)
     statusbar.value = ResourceAmount
-    statusbar.max = 10
+    statusbar.max = 30
     statusbar.attachToSprite(Hero)
 }
 sprites.onOverlap(SpriteKind.Player, SpriteKind.Resource, function (sprite3, otherSprite) {
@@ -610,13 +606,13 @@ let list: number[] = []
 let Spectator: Sprite = null
 let i = 0
 let canDoubleJump = false
+let ResourceAmount = 0
 let BadGuy1: Sprite = null
 let Resource: Sprite = null
 let Reward2: Sprite = null
-let ShieldStatus = 0
-let Spectate = 0
 let Hero: Sprite = null
-let ResourceAmount = 0
+let Spectate = 0
+let ShieldStatus = 0
 let current_level = 0
 Starting_Game_Mechanics()
 current_level = 0
