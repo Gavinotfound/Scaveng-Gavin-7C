@@ -547,8 +547,10 @@ function start_level () {
             dddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddd
             `)
     } else if (current_level == 1) {
+        effects.blizzard.startScreenEffect()
         tiles.setCurrentTilemap(tilemap`level5`)
     } else if (current_level == 2) {
+        effects.blizzard.endScreenEffect()
         tiles.setCurrentTilemap(tilemap`level18`)
     } else if (current_level == 3) {
         game.gameOver(true)
