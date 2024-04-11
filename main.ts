@@ -267,7 +267,6 @@ function ExitSpectate () {
         story.cancelCurrentCutscene()
     })
     sprites.destroyAllSpritesOfKind(SpriteKind.SpectatorSprite)
-    StatusBarFunc()
     Starting_Game_Mechanics()
     start_level()
     Level_Spawn_Points()
@@ -393,6 +392,7 @@ function ExitSpectate () {
         dddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddd
         dddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddd
         `)
+    StatusBarFunc()
 }
 sprites.onOverlap(SpriteKind.Player, SpriteKind.Reward, function (sprite3, otherSprite) {
     otherSprite.destroy(effects.confetti, 500)
@@ -403,10 +403,10 @@ sprites.onOverlap(SpriteKind.Player, SpriteKind.Reward, function (sprite3, other
 function StatusBarFunc () {
     statusbar = statusbars.create(20, 4, StatusBarKind.Health)
     statusbar.setColor(9, 3)
-    statusbar.attachToSprite(Hero)
     statusbar.setStatusBarFlag(StatusBarFlag.SmoothTransition, true)
     statusbar.value = ResourceAmount
     statusbar.max = 10
+    statusbar.attachToSprite(Hero)
 }
 sprites.onOverlap(SpriteKind.Player, SpriteKind.Resource, function (sprite3, otherSprite) {
     otherSprite.destroy(effects.confetti, 500)
@@ -570,10 +570,7 @@ function BKeyPressed (OnShield: boolean) {
         myDart.throwDart()
     } else {
         if (ResourceAmount < 1) {
-            story.startCutscene(function () {
-                story.printDialog("Gain more resources!", 80, 90, 50, 150)
-                story.cancelCurrentCutscene()
-            })
+            game.splash("Get More Resources")
         } else {
             Hero.setImage(assets.image`myImage2`)
             ShieldStatus += 1
