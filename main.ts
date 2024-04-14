@@ -8,6 +8,7 @@ namespace SpriteKind {
 scene.onOverlapTile(SpriteKind.Player, assets.tile`myTile0`, function (sprite, location) {
     if (ShieldStatus == 1) {
         sprite.setImage(assets.image`myImage0`)
+        ShieldStatus += -1
     } else {
         sprite.setVelocity(sprite.vx, -100)
         info.changeLifeBy(-1)
@@ -76,13 +77,12 @@ controller.combos.attachCombo("uuddlrlra", function () {
     ResourceAmount += 10
 })
 function Starting_Game_Mechanics () {
+    info.setLife(3)
     Hero = sprites.create(assets.image`myImage0`, SpriteKind.Player)
     scene.cameraFollowSprite(Hero)
     controller.moveSprite(Hero, 100, 0)
     Hero.ay = 200
     canDoubleJump = true
-    info.setScore(0)
-    info.setLife(3)
 }
 controller.A.onEvent(ControllerButtonEvent.Pressed, function () {
     if (i < 4) {
@@ -107,13 +107,13 @@ controller.A.onEvent(ControllerButtonEvent.Pressed, function () {
             if (Hero.vy == 0) {
                 Hero.vy = -80
             }
-            if (Hero.isHittingTile(CollisionDirection.Bottom)) {
-                Hero.vy = -120
-            } else if (canDoubleJump) {
-                Hero.vy = -100
-                canDoubleJump = false
-            }
         }
+    }
+    if (Hero.isHittingTile(CollisionDirection.Bottom)) {
+        Hero.vy = -120
+    } else if (canDoubleJump) {
+        Hero.vy = -100
+        canDoubleJump = false
     }
 })
 function StartSpectate () {
@@ -389,6 +389,7 @@ function ExitSpectate () {
         dddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddd
         `)
     StatusBarFunc()
+    info.setScore(ScorePre)
 }
 sprites.onOverlap(SpriteKind.Player, SpriteKind.Reward, function (sprite3, otherSprite) {
     otherSprite.destroy(effects.confetti, 500)
@@ -412,6 +413,7 @@ sprites.onOverlap(SpriteKind.Player, SpriteKind.Resource, function (sprite3, oth
     scene.cameraShake(2, 100)
 })
 scene.onOverlapTile(SpriteKind.Player, assets.tile`myTile2`, function (sprite, location) {
+    ScorePre = info.score()
     StartSpectate()
 })
 function start_level () {
@@ -562,7 +564,7 @@ function BKeyPressed (OnShield: boolean) {
         myDart = darts.create(assets.image`myImage5`, SpriteKind.Projectile)
         myDart.setPosition(Hero.x, Hero.y)
         myDart.pow = 80
-        myDart.angle = 10
+        myDart.angle = AngleShield
         myDart.angleRate = 1
         myDart.setFlag(SpriteFlag.DestroyOnWall, true)
         myDart.throwDart()
@@ -570,13 +572,18 @@ function BKeyPressed (OnShield: boolean) {
         if (ResourceAmount < 1) {
             game.splash("Get More Resources")
         } else {
-            Hero.setImage(assets.image`myImage2`)
+            if (AngleShield == 10) {
+                Hero.setImage(assets.image`myImage2`)
+            } else {
+                Hero.setImage(assets.image`myImage8`)
+            }
             ShieldStatus += 1
             ResourceAmount += -1
         }
     }
 }
 function Init () {
+    info.setScore(0)
     controller.combos.setExtendedComboMode(true)
     controller.combos.setTimeout(1000)
     game.setGameOverPlayable(false, music.melodyPlayable(music.wawawawaa), false)
@@ -600,8 +607,10 @@ scene.onOverlapTile(SpriteKind.Player, assets.tile`myTile`, function (sprite2, l
 scene.onOverlapTile(SpriteKind.Player, assets.tile`myTile9`, function (sprite6, location5) {
     game.over(false, effects.dissolve)
 })
+let AngleShield = 0
 let myDart: Dart = null
 let statusbar: StatusBarSprite = null
+let ScorePre = 0
 let list: number[] = []
 let Spectator: Sprite = null
 let i = 0
@@ -623,6 +632,21 @@ StatusBarFunc()
 game.onUpdate(function () {
     if (Hero.isHittingTile(CollisionDirection.Bottom)) {
         canDoubleJump = true
+    }
+    if (controller.right.isPressed()) {
+        AngleShield = 10
+        if (ShieldStatus == 1) {
+            Hero.setImage(assets.image`myImage2`)
+        } else {
+            Hero.setImage(assets.image`myImage3`)
+        }
+    } else if (controller.left.isPressed()) {
+        AngleShield = 170
+        if (ShieldStatus == 1) {
+            Hero.setImage(assets.image`myImage8`)
+        } else {
+            Hero.setImage(assets.image`myImage0`)
+        }
     }
 })
 game.onUpdate(function () {
