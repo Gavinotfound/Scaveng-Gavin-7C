@@ -22,25 +22,6 @@ namespace myImages {
 . . . f 3 . . . . . . . . . . . 
 . . . f f . . . . . . . . . . . 
 `;
-            case "image2":
-            case "myImage0":return img`
-. . . . . . . . . . . . . . . . 
-. . . . . . . 6 6 6 6 . . . . . 
-. . . . . . . 1 1 1 6 . . . . . 
-. . . . . . . 1 1 1 3 . . . . . 
-. . . . . 9 9 7 1 7 9 9 . . . . 
-. . . . . 1 9 7 9 7 9 1 . . . . 
-. . . . . 1 7 9 9 9 7 1 . . . . 
-. . . . . 1 9 9 9 9 9 1 . . . . 
-. . . . . 1 9 9 9 9 9 1 . . . . 
-. . . . . . 9 9 9 9 9 . . . . . 
-. . . . . . 8 8 8 8 8 . . . . . 
-. . . . . . 8 8 . 8 8 . . . . . 
-. . . . . . . 1 . 1 . . . . . . 
-. . . . . . . 1 . 1 . . . . . . 
-. . . . . . . 3 . 3 . . . . . . 
-. . . . . . f f . f f . . . . . 
-`;
             case "image6":
             case "myImage4":return img`
 . . . . . . . . . . . . . . . . 
@@ -281,25 +262,6 @@ ffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff
 ....1.......1...
 ....f.......f...
 `;
-            case "image4":
-            case "myImage2":return img`
-. . . . . . . . . . . . . . . . 
-. . . . . 6 6 6 6 . . . . . . . 
-. . . . . 6 1 1 1 . . . . . . . 
-. . . . 7 3 1 1 f f f f f f . . 
-. . . 7 9 9 7 1 f b b b b f . . 
-. . . 7 1 9 7 9 f 3 c c 3 f . . 
-. . . 7 7 1 9 9 f b b b b f . . 
-. . . . 7 9 1 1 f c c c c f . . 
-. . . . . 9 9 9 f 3 b b 3 f . . 
-. . . . . 9 9 9 f c c c c f . . 
-. . . . . 8 8 8 f b b b b f . . 
-. . . . . 8 8 . f 3 c c 3 f . . 
-. . . . . . 1 . f b b b b f . . 
-. . . . . . 1 . f c c c c f . . 
-. . . . . . 3 . f f f f f f . . 
-. . . . . f f . f f . . . . . . 
-`;
             case "image9":
             case "myImage5":return img`
 f f f f f f f f f f f f 
@@ -327,43 +289,78 @@ f f f f f f f f f f f f
 . . 5 5 8 8 8 8 8 8 8 5 5 . . 
 . . . . 5 5 5 5 5 5 5 . . . . 
 `;
-            case "image5":
-            case "myImage3":return img`
-. . . . . . . . . . . . . . . . 
-. . . . . 6 6 6 6 . . . . . . . 
-. . . . . 6 1 1 1 . . . . . . . 
-. . . . . 3 1 1 1 . . . . . . . 
-. . . . 9 9 7 1 7 9 9 . . . . . 
-. . . . 1 9 7 9 7 9 1 . . . . . 
-. . . . 1 7 9 9 9 7 1 . . . . . 
-. . . . 1 9 9 9 9 9 1 3 . . . . 
-. . . . 1 9 9 9 9 9 1 . . . . . 
-. . . . . 9 9 9 9 9 . . . . . . 
-. . . . . 8 8 8 8 8 . . . . . . 
-. . . . . 8 8 . 8 8 . . . . . . 
-. . . . . . 1 . 1 . . . . . . . 
-. . . . . . 1 . 1 . . . . . . . 
-. . . . . . 3 . 3 . . . . . . . 
-. . . . . f f . f f . . . . . . 
+            case "image2":
+            case "myImage0":return img`
+. . 6 6 6 6 . 
+. . 1 1 1 6 . 
+. . 1 1 1 3 . 
+9 9 7 1 7 9 9 
+1 9 7 9 7 9 1 
+1 7 9 9 9 7 1 
+1 9 9 9 9 9 1 
+1 9 9 9 9 9 1 
+. 9 9 9 9 9 . 
+. 8 8 8 8 8 . 
+. 8 8 . 8 8 . 
+. . 1 . 1 . . 
+. . 1 . 1 . . 
+. . 3 . 3 . . 
+. f f . f f . 
+`;
+            case "image4":
+            case "myImage2":return img`
+. . 6 6 6 6 . . . . . 
+. . 6 1 1 1 . . . . . 
+. 7 3 1 1 f f f f f f 
+7 9 9 7 1 f b b b b f 
+7 1 9 7 9 f 3 c c 3 f 
+7 7 1 9 9 f b b b b f 
+. 7 9 1 1 f c c c c f 
+. . 9 9 9 f 3 b b 3 f 
+. . 9 9 9 f c c c c f 
+. . 8 8 8 f b b b b f 
+. . 8 8 . f 3 c c 3 f 
+. . . 1 . f b b b b f 
+. . . 1 . f c c c c f 
+. . . 3 . f f f f f f 
+. . f f . f f . . . . 
 `;
             case "image11":
             case "myImage8":return img`
-. . . . . . . . . . . . . . . . 
-. . . . . . . 6 6 6 6 . . . . . 
-. . . . . . . 1 1 1 6 . . . . . 
-. . f f f f f f 1 1 3 7 . . . . 
-. . f b b b b f 1 7 9 9 7 . . . 
-. . f 3 c c 3 f 9 7 9 1 7 . . . 
-. . f b b b b f 9 9 1 7 7 . . . 
-. . f c c c c f 1 1 9 7 . . . . 
-. . f 3 b b 3 f 9 9 9 . . . . . 
-. . f c c c c f 9 9 9 . . . . . 
-. . f b b b b f 8 8 8 . . . . . 
-. . f 3 c c 3 f . 8 8 . . . . . 
-. . f b b b b f . 1 . . . . . . 
-. . f c c c c f . 1 . . . . . . 
-. . f f f f f f . 3 . . . . . . 
-. . . . . . f f . f f . . . . . 
+. . . . . 6 6 6 6 . . 
+. . . . . 1 1 1 6 . . 
+f f f f f f 1 1 3 7 . 
+f b b b b f 1 7 9 9 7 
+f 3 c c 3 f 9 7 9 1 7 
+f b b b b f 9 9 1 7 7 
+f c c c c f 1 1 9 7 . 
+f 3 b b 3 f 9 9 9 . . 
+f c c c c f 9 9 9 . . 
+f b b b b f 8 8 8 . . 
+f 3 c c 3 f . 8 8 . . 
+f b b b b f . 1 . . . 
+f c c c c f . 1 . . . 
+f f f f f f . 3 . . . 
+. . . . f f . f f . . 
+`;
+            case "image5":
+            case "myImage3":return img`
+. 6 6 6 6 . . 
+. 6 1 1 1 . . 
+. 3 1 1 1 . . 
+9 9 7 1 7 9 9 
+1 9 7 9 7 9 1 
+1 7 9 9 9 7 1 
+1 9 9 9 9 9 1 
+1 9 9 9 9 9 1 
+. 9 9 9 9 9 . 
+. 8 8 8 8 8 . 
+. 8 8 . 8 8 . 
+. . 1 . 1 . . 
+. . 1 . 1 . . 
+. . 3 . 3 . . 
+. f f . f f . 
+. . . . . . . 
 `;
         }
         return null;
@@ -378,7 +375,8 @@ f f f f f f f f f f f f
 
     helpers._registerFactory("song", function(name: string) {
         switch(helpers.stringTrim(name)) {
-
+            case "song1":
+            case "mySong":return hex`00780004080200`;
         }
         return null;
     })

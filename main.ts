@@ -30,6 +30,10 @@ controller.B.onEvent(ControllerButtonEvent.Pressed, function () {
     }
 })
 function Level_Spawn_Points () {
+    sprites.destroyAllSpritesOfKind(SpriteKind.Resource)
+    sprites.destroyAllSpritesOfKind(SpriteKind.Reward)
+    sprites.destroyAllSpritesOfKind(SpriteKind.Projectile)
+    sprites.destroyAllSpritesOfKind(SpriteKind.Enemy)
     // This is a spawn point on the tilemap for the hero. This tile will be replaced by the hero sprite
     for (let value of tiles.getTilesByType(assets.tile`Hero Spawn Point`)) {
         tiles.placeOnTile(Hero, value)
@@ -59,10 +63,10 @@ function Level_Spawn_Points () {
         tiles.setTileAt(value2, assets.tile`transparency16`)
     }
     // This is a spawn point for rewards. This tile will be replaced by your reward sprite. The art should be replaced with yours.
-    for (let value2 of tiles.getTilesByType(assets.tile`myTile8`)) {
-        Resource = sprites.create(assets.image`myImage`, SpriteKind.Resource)
-        tiles.placeOnTile(Resource, value2)
-        tiles.setTileAt(value2, assets.tile`transparency16`)
+    for (let value22 of tiles.getTilesByType(assets.tile`myTile8`)) {
+        Resource2 = sprites.create(assets.image`myImage`, SpriteKind.Resource)
+        tiles.placeOnTile(Resource2, value22)
+        tiles.setTileAt(value22, assets.tile`transparency16`)
     }
     // This is a spawn point for rewards. This tile will be replaced by your reward sprite. The art should be replaced with yours.
     for (let value3 of tiles.getTilesByType(assets.tile`Enemy Spawn Points`)) {
@@ -408,6 +412,7 @@ function StatusBarFunc () {
 sprites.onOverlap(SpriteKind.Player, SpriteKind.Resource, function (sprite3, otherSprite) {
     otherSprite.destroy(effects.confetti, 500)
     ResourceAmount += 1
+    statusbar.value = ResourceAmount
     music.baDing.play()
     info.changeScoreBy(10)
     scene.cameraShake(2, 100)
@@ -417,8 +422,6 @@ scene.onOverlapTile(SpriteKind.Player, assets.tile`myTile2`, function (sprite, l
     StartSpectate()
 })
 function start_level () {
-    sprites.destroyAllSpritesOfKind(SpriteKind.Enemy)
-    sprites.destroyAllSpritesOfKind(SpriteKind.Reward)
     if (current_level == 0) {
         // This will be your "platform" for level 1. Start with designing this to create your world. You can use the pre-made gallery tiles or create your own.
         tiles.setCurrentTilemap(tilemap`level1`)
@@ -548,7 +551,6 @@ function start_level () {
         effects.blizzard.startScreenEffect()
         tiles.setCurrentTilemap(tilemap`level5`)
     } else if (current_level == 2) {
-        effects.blizzard.endScreenEffect()
         tiles.setCurrentTilemap(tilemap`level18`)
     } else if (current_level == 3) {
         game.gameOver(true)
@@ -617,7 +619,7 @@ let i = 0
 let canDoubleJump = false
 let ResourceAmount = 0
 let BadGuy1: Sprite = null
-let Resource: Sprite = null
+let Resource2: Sprite = null
 let Reward2: Sprite = null
 let Hero: Sprite = null
 let Spectate = 0
@@ -629,7 +631,7 @@ start_level()
 Level_Spawn_Points()
 Init()
 StatusBarFunc()
-game.onUpdate(function () {
+forever(function () {
     if (Hero.isHittingTile(CollisionDirection.Bottom)) {
         canDoubleJump = true
     }
@@ -648,7 +650,4 @@ game.onUpdate(function () {
             Hero.setImage(assets.image`myImage0`)
         }
     }
-})
-game.onUpdate(function () {
-    statusbar.value = ResourceAmount
 })

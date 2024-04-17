@@ -4,11 +4,6 @@
         "mimeType": "image/x-mkcd-f4",
         "displayName": "myImage1"
     },
-    "image2": {
-        "data": "hwQQABAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAZEQEAAAAAAJmXmYgA8GARd5mZiBHzYBGRmZkIAABgEXeZmYgR82A2mZeZiADwAAAZEQEAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
-        "mimeType": "image/x-mkcd-f4",
-        "displayName": "myImage0"
-    },
     "image6": {
         "data": "hwQQABAAAAAAAAAAAAAAAAAAAAAA/wAAABARAAA/AAAAAAABAAABAAAAkAAAgAEAYDaZl5mIAABgEXeZmQgAAGARkZmZCAAAYBF3mZmIAAAAAJmXmYgBAAAAkAEAABEAAAAAEAAAAPMAAAABAAAA/wAAEQAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
         "mimeType": "image/x-mkcd-f4",
@@ -29,11 +24,6 @@
         "mimeType": "image/x-mkcd-f4",
         "displayName": "Enemy1"
     },
-    "image4": {
-        "data": "hwQQABAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAHcHAAAAAABwGXcAAAAAYDaZkZmIAPBgEXcZmYgR82ARkRmZCAAAYPH///////8A8DvLwzvL/wDwy8vLy8sPAPDLy8vLyw8A8DvLwzvLDwDw//////8PAAAAAAAAAAAAAAAAAAAAAA==",
-        "mimeType": "image/x-mkcd-f4",
-        "displayName": "myImage2"
-    },
     "image9": {
         "data": "hwQMAAYAAAD///8Av7v7AD/M8wC/u/sAz8z8AD+78wDPzPwAv7v7AD/M8wC/u/sAz8z8AP///wA=",
         "mimeType": "image/x-mkcd-f4",
@@ -44,15 +34,31 @@
         "mimeType": "image/x-mkcd-f4",
         "displayName": "myImage7"
     },
+    "image2": {
+        "data": "hwQHAA8AAAAAkBERAAAAAACQeZmJCAAPFnGXmYkYMQ8WEZmZiQAAABZxl5mJGDEPZpN5mYkIAA8AkBERAAAAAA==",
+        "mimeType": "image/x-mkcd-f4",
+        "displayName": "myImage0"
+    },
+    "image4": {
+        "data": "hwQLAA8AAAAAcHcAAAAAAACXcQcAAAAAZpMZmYkIAA8WcZeRiRgxDxYRmZGJAAAAFv///////w8Av7M8vLP8DwC/vLy8vPwAAL+8vLy8/AAAv7M8vLP8AAD///////8A",
+        "mimeType": "image/x-mkcd-f4",
+        "displayName": "myImage2"
+    },
+    "image11": {
+        "data": "hwQLAA8AAAAA////////AAC/szy8s/wAAL+8vLy8/AAAv7y8vLz8AAC/szy8s/wPFv///////w8WEZmRiQAAABZxl5GJGDEPZpMZmYkIAA8Al3EHAAAAAABwdwAAAAAA",
+        "mimeType": "image/x-mkcd-f4",
+        "displayName": "myImage8"
+    },
     "image5": {
-        "data": "hwQQABAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAGREBAAAAYDaZl5mIAPBgEXeZmYgR82ARkZmZCAAAYBF3mZmIEfMAAJmXmYgA8AAAGREBAAAAAAAAMAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+        "data": "hwQHABAAAAAAkBERAAAAAGaTeZmJCAAPFnGXmYkYMQ8WEZmZiQAAABZxl5mJGDEPAJB5mYkIAA8AkBERAAAAAA==",
         "mimeType": "image/x-mkcd-f4",
         "displayName": "myImage3"
     },
-    "image11": {
-        "data": "hwQQABAAAAAAAAAAAAAAAAAAAAAAAAAAAPD//////w8A8DvLwzvLDwDwy8vLy8sPAPDLy8vLyw8A8DvLwzvL/2Dx////////YBGRGZkIAABgEXcZmYgR82A2mZGZiADwAHAZdwAAAAAAAHcHAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
-        "mimeType": "image/x-mkcd-f4",
-        "displayName": "myImage8"
+    "song1": {
+        "data": "00780004080200",
+        "mimeType": "application/mkcd-song",
+        "displayName": "mySong",
+        "namespace": "mySongs."
     },
     "*": {
         "mimeType": "image/x-mkcd-f4",
