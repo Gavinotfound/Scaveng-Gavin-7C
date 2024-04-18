@@ -61,11 +61,12 @@ function Level_Spawn_Points () {
         tiles.placeOnTile(Resource2, value22)
         tiles.setTileAt(value22, assets.tile`transparency16`)
     }
-    // This is a spawn point for rewards. This tile will be replaced by your reward sprite. The art should be replaced with yours.
     for (let value3 of tiles.getTilesByType(assets.tile`Enemy Spawn Points`)) {
         BadGuy1 = sprites.create(assets.image`Enemy1`, SpriteKind.Enemy)
         tiles.placeOnTile(BadGuy1, value3)
         tiles.setTileAt(value3, assets.tile`transparency16`)
+        BadGuy1.ay = 300
+        BadGuy1.setVelocity(50, 100)
     }
 }
 function Starting_Game_Mechanics () {
@@ -393,6 +394,10 @@ sprites.onOverlap(SpriteKind.Player, SpriteKind.Resource, function (sprite32, ot
     music.baDing.play()
     info.changeScoreBy(10)
     scene.cameraShake(2, 100)
+})
+scene.onOverlapTile(SpriteKind.Enemy, assets.tile`myTile16`, function (sprite, location) {
+    pause(randint(0, 100))
+    sprite.setVelocity(sprite.vx * -1, 100)
 })
 scene.onOverlapTile(SpriteKind.Player, assets.tile`myTile2`, function (sprite2, location2) {
     ScorePre = info.score()
