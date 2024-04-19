@@ -227,41 +227,6 @@ ffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff
 66666666666666666666666666666.
 66633333333333333333336363636.
 `;
-            case "image1":
-            case "Enemy1":return img`
-....2..2........
-.2222222222..2..
-.2442442444.222.
-.2..2..2....424.
-.2..2..2.....2..
-.2222222222..2..
-.4442442442..2..
-....2..2..2..2..
-.2222222222..2..
-.4442442444..2..
-....2..2.....4..
-....4..4........
-..36666666663...
-.3666666333333..
-.66611111ff11...
-.6611111142f1...
-.366111111111...
-.fffffffffffff..
-.fffffffffffff..
-.fffffffffffff..
-.f66f65f6f325ff.
-.f66f66f6ff322f.
-.f66f65f66ff32f.
-.f66f66f66ff32f.
-.f66ffff666f32f.
-.ffff11ffff6666f
-.f6666666666666f
-..f666666666666f
-..f666fffff6666f
-...fff.....ffff.
-....1.......1...
-....f.......f...
-`;
             case "image9":
             case "myImage5":return img`
 f f f f f f f f f f f f 
@@ -365,6 +330,41 @@ f f f f f f . 3 . . .
 . . . 3 . 3 . . . 
 . . f f . f f . . 
 `;
+            case "image1":
+            case "Enemy1":return img`
+........2..2....
+..2..2222222222.
+.222.4442442442.
+.424....2..2..2.
+..2.....2..2..2.
+..2..2222222222.
+..2..2442442444.
+..2..2..2..2....
+..2..2222222222.
+..2..4442442444.
+..4.....2..2....
+........4..4....
+...36666666663..
+..3333336666663.
+...11ff11111666.
+...1f2411111166.
+...111111111663.
+..fffffffffffff.
+..fffffffffffff.
+..fffffffffffff.
+.ff523f6f56f66f.
+.f223ff6f66f66f.
+.f23ff66f56f66f.
+.f23ff66f66f66f.
+.f23f666ffff66f.
+f6666ffff11ffff.
+f6666666666666f.
+f666666666666f..
+f6666fffff666f..
+.ffff.....fff...
+...1.......1....
+...f.......f....
+`;
             case "image12":
             case "myImage9":return img`
 . . . . . . . . c c c c . . . . 
@@ -397,8 +397,7 @@ c c b a a a a b 6 b b a b b a .
 
     helpers._registerFactory("song", function(name: string) {
         switch(helpers.stringTrim(name)) {
-            case "song1":
-            case "mySong":return hex`00780004080200`;
+
         }
         return null;
     })
