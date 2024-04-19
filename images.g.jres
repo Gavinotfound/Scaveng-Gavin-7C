@@ -54,6 +54,11 @@
         "mimeType": "image/x-mkcd-f4",
         "displayName": "myImage0"
     },
+    "image12": {
+        "data": "hwQQABAAAAAAAADAzAwAAAAAAKyqzAAAAMDM/K/LDAAAzMz8z7oMAMD/qsz/uswMwPyvyv+6uwvA/K/MzLqsu8D6rKysu8xqzKq6u2y2zGrMqsq6Zru7xsyq/2+7q7rLzMz/vLvKugzAqv+6u8vLAACsqrqquwwAAMCqzKqqAAAAAMzMzAAAAA==",
+        "mimeType": "image/x-mkcd-f4",
+        "displayName": "myImage9"
+    },
     "song1": {
         "data": "00780004080200",
         "mimeType": "application/mkcd-song",

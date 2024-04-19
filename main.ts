@@ -382,22 +382,20 @@ sprites.onOverlap(SpriteKind.Player, SpriteKind.Reward, function (sprite3, other
     scene.cameraShake(2, 100)
 })
 function StatusBarFunc () {
-    statusbar = statusbars.create(20, 4, StatusBarKind.Health)
+    statusbar = statusbars.create(20, 4, StatusBarKind.Energy)
+    statusbar.value = 0
     statusbar.setColor(8, 1)
     statusbar.max = 30
+    statusbar.setStatusBarFlag(StatusBarFlag.SmoothTransition, true)
     statusbar.attachToSprite(Hero)
 }
 sprites.onOverlap(SpriteKind.Player, SpriteKind.Resource, function (sprite32, otherSprite3) {
     otherSprite3.destroy(effects.confetti, 500)
     ResourceAmount += 1
-    statusbar.value = ResourceAmount
     music.baDing.play()
     info.changeScoreBy(10)
     scene.cameraShake(2, 100)
-})
-scene.onOverlapTile(SpriteKind.Enemy, assets.tile`myTile16`, function (sprite, location) {
-    pause(randint(0, 100))
-    sprite.setVelocity(sprite.vx * -1, 100)
+    statusbar.value = ResourceAmount
 })
 scene.onOverlapTile(SpriteKind.Player, assets.tile`myTile2`, function (sprite2, location2) {
     ScorePre = info.score()
@@ -577,6 +575,7 @@ function BKeyPressed (OnShield: boolean) {
         }
         ShieldStatus += 1
         ResourceAmount += -1
+        statusbar.value = ResourceAmount
     }
     RefreshStatus()
 }
@@ -609,7 +608,6 @@ scene.onOverlapTile(SpriteKind.Player, assets.tile`myTile9`, function (sprite6, 
 })
 let myDart: Dart = null
 let Spectator: Sprite = null
-let ResourceAmount = 0
 let statusbar: StatusBarSprite = null
 let ScorePre = 0
 let AngleShield = 0
@@ -622,7 +620,9 @@ let Hero: Sprite = null
 let ShieldStatus = 0
 let Spectate = 0
 let current_level = 0
+let ResourceAmount = 0
 Starting_Game_Mechanics()
+ResourceAmount = 0
 current_level = 0
 start_level()
 Level_Spawn_Points()
