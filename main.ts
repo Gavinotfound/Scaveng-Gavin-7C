@@ -9,10 +9,6 @@ namespace SpriteKind {
 scene.onOverlapTile(SpriteKind.Player, assets.tile`myTile0`, function (sprite, location) {
     Damage()
 })
-scene.onOverlapTile(SpriteKind.Player, assets.tile`myTile19`, function (sprite, location) {
-    SmallBoss()
-    SmallBossTriger += 1
-})
 sprites.onOverlap(SpriteKind.Player, SpriteKind.Enemy, function (sprite8, otherSprite2) {
     otherSprite2.destroy(effects.ashes, 100)
     Damage()
@@ -223,27 +219,6 @@ controller.A.onEvent(ControllerButtonEvent.Pressed, function () {
         canDoubleJump = false
     }
 })
-function SmallBoss () {
-    if (SmallBossTriger == 1) {
-        BadGuy1.setPosition(70, 45)
-        sprites.destroyAllSpritesOfKind(SpriteKind.EnemyProjectile)
-    } else {
-        for (let value3 of tiles.getTilesByType(assets.tile`myTile26`)) {
-            Meteor = sprites.create(assets.image`myImage9`, SpriteKind.EnemyProjectile)
-            tiles.placeOnTile(Meteor, value3)
-            tiles.setTileAt(value3, assets.tile`transparency16`)
-            Meteor.setFlag(SpriteFlag.AutoDestroy, false)
-            Meteor.ay = 200
-        }
-        for (let value3 of tiles.getTilesByType(assets.tile`Enemy Spawn Points`)) {
-            BadGuy1 = sprites.create(assets.image`Enemy1`, SpriteKind.Enemy)
-            tiles.placeOnTile(BadGuy1, value3)
-            tiles.setTileAt(value3, assets.tile`transparency16`)
-            BadGuy1.ay = 300
-            BadGuy1.setVelocity(50, 100)
-        }
-    }
-}
 function RefreshStatus () {
     if (controller.right.isPressed()) {
         AngleShield = 10
@@ -633,8 +608,6 @@ let Spectator: Sprite = null
 let statusbar: StatusBarSprite = null
 let ScorePre = 0
 let AngleShield = 0
-let Meteor: Sprite = null
-let BadGuy1: Sprite = null
 let i = 0
 let canDoubleJump = false
 let ResourceAmount = 0
@@ -643,7 +616,6 @@ let Reward2: Sprite = null
 let Hero: Sprite = null
 let ShieldStatus = 0
 let Spectate = 0
-let SmallBossTriger = 0
 let current_level = 0
 Starting_Game_Mechanics()
 current_level = 3
