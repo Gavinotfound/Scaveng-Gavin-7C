@@ -62,6 +62,14 @@ function Level_Spawn_Points () {
         tiles.placeOnTile(Resource2, value22)
         tiles.setTileAt(value22, assets.tile`transparency16`)
     }
+    // This is a spawn point for rewards. This tile will be replaced by your reward sprite. The art should be replaced with yours.
+    for (let value22 of tiles.getTilesByType(assets.tile`Enemy Spawn Points`)) {
+        myEnemy = sprites.create(assets.image`Enemy1`, SpriteKind.Enemy)
+        tiles.placeOnTile(myEnemy, value22)
+        tiles.setTileAt(value22, assets.tile`transparency16`)
+        myEnemy.follow(Hero, 50)
+        myEnemy.ay = 500
+    }
 }
 function Starting_Game_Mechanics () {
     scene.setBackgroundImage(img`
@@ -611,6 +619,7 @@ let AngleShield = 0
 let i = 0
 let canDoubleJump = false
 let ResourceAmount = 0
+let myEnemy: Sprite = null
 let Resource2: Sprite = null
 let Reward2: Sprite = null
 let Hero: Sprite = null
