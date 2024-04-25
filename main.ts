@@ -238,6 +238,11 @@ controller.A.onEvent(ControllerButtonEvent.Pressed, function () {
         canDoubleJump = false
     }
 })
+sprites.onOverlap(SpriteKind.Player, SpriteKind.EnemyProjectile, function (sprite32, otherSprite3) {
+    otherSprite3.destroy(effects.ashes, 500)
+    info.changeLifeBy(-1)
+    pause(100)
+})
 function RefreshStatus () {
     if (controller.right.isPressed()) {
         AngleShield = 10
