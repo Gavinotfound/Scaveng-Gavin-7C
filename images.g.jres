@@ -49,15 +49,15 @@
         "mimeType": "image/x-mkcd-f4",
         "displayName": "myImage0"
     },
-    "image12": {
-        "data": "hwQQABAAAAAAAADAzAwAAAAAAKyqzAAAAMDM/K/LDAAAzMz8z7oMAMD/qsz/uswMwPyvyv+6uwvA/K/MzLqsu8D6rKysu8xqzKq6u2y2zGrMqsq6Zru7xsyq/2+7q7rLzMz/vLvKugzAqv+6u8vLAACsqrqquwwAAMCqzKqqAAAAAMzMzAAAAA==",
-        "mimeType": "image/x-mkcd-f4",
-        "displayName": "myImage9"
-    },
     "image1": {
         "data": "hwQQACAAAAAAAAAAAAAAAAAAAADw/w8AAEIAAAAAAAAAAP//b2b2ACAiIiIiBDAA8P8vImJm9gAAQgAAAAAzEfH/JTNjZvbxAAAAAAAANvHx/zL/b2b2ACAEICJCADYv8f/z//ZmDwAgBCAEQgA2T/H//2b2Zg8AIAQgBEIANhHx/2Zm9mYPACIiIiIiQmYR8f////9mDwAgBCAEQgBmEfH/ZWUfZg8AIAQgBEIAZhHx/2ZmH2b2ACIiIiIiQmYR8f////9m9vEgBCAEQgBmFvb/Zmb2ZvYAIAQgBEIAY2b2/2Zm9vYPACAiIgRCADBm8/////8PAAAAAAAAAAAAAAAAAAAAAAAA",
         "mimeType": "image/x-mkcd-f4",
         "displayName": "Enemy1"
+    },
+    "image12": {
+        "data": "hwQQABAAAAAAAADAzAwAAAAAAKyuzAAAAMDMTF7LDAAA7szszrYMAMDuo+zuZsMMwOwyyu6+uwvA7KJmZrZmu8DqrKw8u2NKzFq6u0yyzCrMqsqzRLu7wsyqQkS7a2rGzOwuvLVjYwzAqi6+u2vGAACsqr6quwwAAMCqzqqqAAAAAMzMzAAAAA==",
+        "mimeType": "image/x-mkcd-f4",
+        "displayName": "myImage9"
     },
     "*": {
         "mimeType": "image/x-mkcd-f4",
