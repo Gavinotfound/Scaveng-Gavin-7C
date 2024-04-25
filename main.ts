@@ -67,19 +67,19 @@ function Level_Spawn_Points () {
         myEnemy = sprites.create(assets.image`Enemy1`, SpriteKind.Enemy)
         tiles.placeOnTile(myEnemy, value22)
         tiles.setTileAt(value22, assets.tile`transparency16`)
-        myEnemy.setFlag(SpriteFlag.GhostThroughTiles, false)
+        myEnemy.setFlag(SpriteFlag.GhostThroughWalls, false)
+        myEnemy.setFlag(SpriteFlag.AutoDestroy, false)
         myEnemy.follow(Hero, 50)
         myEnemy.ay = 500
     }
     // This is a spawn point for rewards. This tile will be replaced by your reward sprite. The art should be replaced with yours.
     for (let value22 of tiles.getTilesByType(assets.tile`myTile26`)) {
-        for (let index = 0; index < 4; index++) {
-            Meteor = sprites.create(assets.image`myImage9`, SpriteKind.EnemyProjectile)
-            tiles.placeOnTile(Meteor, value22)
-            Meteor.follow(Hero, 50)
-            Meteor.ay = 200
-            Meteor.setFlag(SpriteFlag.DestroyOnWall, true)
-        }
+        Meteor = sprites.create(assets.image`myImage9`, SpriteKind.EnemyProjectile)
+        tiles.placeOnTile(Meteor, value22)
+        Meteor.setPosition(Meteor.x, 19)
+        Meteor.follow(Hero, randint(50, 80))
+        Meteor.ay = 250
+        Meteor.setFlag(SpriteFlag.DestroyOnWall, true)
     }
 }
 function Starting_Game_Mechanics () {
@@ -641,7 +641,7 @@ let ShieldStatus = 0
 let Spectate = 0
 let current_level = 0
 Starting_Game_Mechanics()
-current_level = 0
+current_level = 3
 start_level()
 Level_Spawn_Points()
 Init()
