@@ -646,7 +646,7 @@ let ShieldStatus = 0
 let Spectate = 0
 let current_level = 0
 Starting_Game_Mechanics()
-current_level = 3
+current_level = 0
 start_level()
 Level_Spawn_Points()
 Init()
