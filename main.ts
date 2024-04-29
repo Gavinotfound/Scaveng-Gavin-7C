@@ -5,6 +5,7 @@ namespace SpriteKind {
     export const Resource = SpriteKind.create()
     export const SpectatorSprite = SpriteKind.create()
     export const EnemyProjectile = SpriteKind.create()
+    export const Boss = SpriteKind.create()
 }
 scene.onOverlapTile(SpriteKind.Player, assets.tile`myTile0`, function (sprite, location) {
     Damage()
@@ -80,6 +81,13 @@ function Level_Spawn_Points () {
         Meteor.follow(Hero, randint(50, 80))
         Meteor.ay = 250
         Meteor.setFlag(SpriteFlag.DestroyOnWall, true)
+    }
+    // This is a spawn point for rewards. This tile will be replaced by your reward sprite. The art should be replaced with yours.
+    for (let value22 of tiles.getTilesByType(assets.tile`myTile27`)) {
+        Boss = sprites.create(assets.image`myImage6`, SpriteKind.Boss)
+        tiles.placeOnTile(Boss, value22)
+        Boss.follow(Hero, randint(1, 5))
+        Boss.fx = 500
     }
 }
 function Starting_Game_Mechanics () {
@@ -570,6 +578,8 @@ function start_level () {
         tiles.setCurrentTilemap(tilemap`level`)
     } else if (current_level == 4) {
         tiles.setCurrentTilemap(tilemap`level0`)
+    } else if (current_level == 5) {
+        tiles.setCurrentTilemap(tilemap`level7`)
     } else {
         game.gameOver(true)
     }
@@ -637,6 +647,7 @@ let AngleShield = 0
 let i = 0
 let canDoubleJump = false
 let ResourceAmount = 0
+let Boss: Sprite = null
 let Meteor: Sprite = null
 let myEnemy: Sprite = null
 let Resource2: Sprite = null
