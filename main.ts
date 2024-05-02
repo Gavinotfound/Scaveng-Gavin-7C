@@ -13,6 +13,7 @@ scene.onOverlapTile(SpriteKind.Player, assets.tile`myTile0`, function (sprite, l
 })
 sprites.onOverlap(SpriteKind.Projectile, SpriteKind.BossProjectile, function (sprite32, otherSprite3) {
     sprites.destroy(otherSprite3, effects.ashes, 150)
+    info.changeScoreBy(10)
 })
 sprites.onOverlap(SpriteKind.Player, SpriteKind.Enemy, function (sprite8, otherSprite2) {
     otherSprite2.destroy(effects.ashes, 100)
@@ -97,6 +98,13 @@ function Level_Spawn_Points () {
         Boss.ay = 300
         Boss.setFlag(SpriteFlag.GhostThroughWalls, false)
         Boss.setFlag(SpriteFlag.AutoDestroy, false)
+        statusbar2 = statusbars.create(20, 2, StatusBarKind.EnemyHealth)
+        BossHP = 30
+        statusbar2.max = 30
+        statusbar2.attachToSprite(Hero, 5, -2)
+        statusbar2.setStatusBarFlag(StatusBarFlag.SmoothTransition, true)
+        statusbar2.value = BossHP
+        statusbar2.setLabel("B")
     }
 }
 function Starting_Game_Mechanics () {
@@ -258,6 +266,7 @@ controller.A.onEvent(ControllerButtonEvent.Pressed, function () {
 sprites.onOverlap(SpriteKind.Projectile, SpriteKind.Enemy, function (sprite32, otherSprite3) {
     sprites.destroy(otherSprite3, effects.ashes, 150)
     sprites.destroy(sprite32, effects.ashes, 150)
+    info.changeScoreBy(30)
 })
 sprites.onOverlap(SpriteKind.Player, SpriteKind.EnemyProjectile, function (sprite32, otherSprite3) {
     Damage()
@@ -434,6 +443,15 @@ function StatusBarFunc () {
     statusbar.setStatusBarFlag(StatusBarFlag.SmoothTransition, true)
     statusbar.attachToSprite(Hero)
 }
+sprites.onOverlap(SpriteKind.Projectile, SpriteKind.Boss, function (sprite32, otherSprite3) {
+    sprites.destroy(sprite32, effects.halo, 150)
+    info.changeScoreBy(30)
+    BossHP += -1
+    statusbar2.value = BossHP
+    if (BossHP == 0) {
+        game.gameOver(true)
+    }
+})
 sprites.onOverlap(SpriteKind.Player, SpriteKind.Resource, function (sprite32, otherSprite3) {
     otherSprite3.destroy(effects.confetti, 500)
     ResourceAmount += 1
@@ -656,6 +674,7 @@ scene.onOverlapTile(SpriteKind.Player, assets.tile`myTile`, function (sprite22, 
 })
 sprites.onOverlap(SpriteKind.Projectile, SpriteKind.EnemyProjectile, function (sprite32, otherSprite3) {
     sprites.destroy(otherSprite3, effects.ashes, 150)
+    info.changeScoreBy(20)
 })
 scene.onOverlapTile(SpriteKind.Player, assets.tile`myTile9`, function (sprite6, location5) {
     game.over(false, effects.dissolve)
@@ -670,6 +689,8 @@ let AngleShield = 0
 let i = 0
 let canDoubleJump = false
 let ResourceAmount = 0
+let BossHP = 0
+let statusbar2: StatusBarSprite = null
 let Boss: Sprite = null
 let Meteor: Sprite = null
 let myEnemy: Sprite = null
@@ -686,7 +707,7 @@ start_level()
 Level_Spawn_Points()
 Init()
 StatusBarFunc()
-game.onUpdateInterval(500, function () {
+game.onUpdateInterval(750, function () {
     if (Bossing == 1) {
         if (randint(0, 5) == 0) {
             Stick = sprites.create(img`
@@ -762,7 +783,8 @@ game.onUpdateInterval(500, function () {
             Boss
             )
             spriteutils.setVelocityAtAngle(Stick, spriteutils.angleFrom(Boss, Hero), 50)
-            Stick.setFlag(SpriteFlag.DestroyOnWall, true)
+            Stick.ay = 100
+            Stick.setFlag(SpriteFlag.AutoDestroy, false)
         } else if (randint(0, 5) == 1) {
             Grenade = sprites.create(img`
                 . . . . . . . . . . . . . . . . 
@@ -790,7 +812,7 @@ game.onUpdateInterval(500, function () {
             )
             spriteutils.setVelocityAtAngle(Grenade, spriteutils.angleFrom(Boss, Hero), 150)
             Grenade.setFlag(SpriteFlag.BounceOnWall, true)
-            Grenade.setFlag(SpriteFlag.AutoDestroy, true)
+            Grenade.setFlag(SpriteFlag.AutoDestroy, false)
         } else if (randint(0, 5) == 2) {
             Meteor = sprites.create(assets.image`myImage9`, SpriteKind.EnemyProjectile)
             spriteutils.placeAngleFrom(
@@ -813,6 +835,7 @@ game.onUpdateInterval(500, function () {
             )
             myEnemy.setFlag(SpriteFlag.GhostThroughWalls, false)
             myEnemy.setFlag(SpriteFlag.AutoDestroy, false)
+            Meteor.setPosition(Meteor.x, 19)
             myEnemy.follow(Hero, 50)
             myEnemy.ay = 500
         } else {
