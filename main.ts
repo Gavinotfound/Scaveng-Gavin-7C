@@ -11,6 +11,9 @@ namespace SpriteKind {
 scene.onOverlapTile(SpriteKind.Player, assets.tile`myTile0`, function (sprite, location) {
     Damage()
 })
+sprites.onOverlap(SpriteKind.Projectile, SpriteKind.BossProjectile, function (sprite32, otherSprite3) {
+    sprites.destroy(otherSprite3, effects.ashes, 150)
+})
 sprites.onOverlap(SpriteKind.Player, SpriteKind.Enemy, function (sprite8, otherSprite2) {
     otherSprite2.destroy(effects.ashes, 100)
     Damage()
@@ -251,6 +254,10 @@ controller.A.onEvent(ControllerButtonEvent.Pressed, function () {
         Hero.vy = -100
         canDoubleJump = false
     }
+})
+sprites.onOverlap(SpriteKind.Projectile, SpriteKind.Enemy, function (sprite32, otherSprite3) {
+    sprites.destroy(otherSprite3, effects.ashes, 150)
+    sprites.destroy(sprite32, effects.ashes, 150)
 })
 sprites.onOverlap(SpriteKind.Player, SpriteKind.EnemyProjectile, function (sprite32, otherSprite3) {
     Damage()
@@ -647,6 +654,9 @@ scene.onOverlapTile(SpriteKind.Player, assets.tile`myTile`, function (sprite22, 
     start_level()
     Level_Spawn_Points()
 })
+sprites.onOverlap(SpriteKind.Projectile, SpriteKind.EnemyProjectile, function (sprite32, otherSprite3) {
+    sprites.destroy(otherSprite3, effects.ashes, 150)
+})
 scene.onOverlapTile(SpriteKind.Player, assets.tile`myTile9`, function (sprite6, location5) {
     game.over(false, effects.dissolve)
 })
@@ -752,6 +762,7 @@ game.onUpdateInterval(500, function () {
             Boss
             )
             spriteutils.setVelocityAtAngle(Stick, spriteutils.angleFrom(Boss, Hero), 50)
+            Stick.setFlag(SpriteFlag.DestroyOnWall, true)
         } else if (randint(0, 5) == 1) {
             Grenade = sprites.create(img`
                 . . . . . . . . . . . . . . . . 
@@ -778,9 +789,32 @@ game.onUpdateInterval(500, function () {
             Boss
             )
             spriteutils.setVelocityAtAngle(Grenade, spriteutils.angleFrom(Boss, Hero), 150)
-            Grenade.setFlag(SpriteFlag.DestroyOnWall, true)
+            Grenade.setFlag(SpriteFlag.BounceOnWall, true)
+            Grenade.setFlag(SpriteFlag.AutoDestroy, true)
         } else if (randint(0, 5) == 2) {
-        	
+            Meteor = sprites.create(assets.image`myImage9`, SpriteKind.EnemyProjectile)
+            spriteutils.placeAngleFrom(
+            Meteor,
+            0,
+            0,
+            Boss
+            )
+            Meteor.setPosition(Meteor.x, 19)
+            Meteor.follow(Hero, randint(50, 80))
+            Meteor.ay = 250
+            Meteor.setFlag(SpriteFlag.DestroyOnWall, true)
+        } else if (randint(0, 5) == 3) {
+            myEnemy = sprites.create(assets.image`Enemy1`, SpriteKind.Enemy)
+            spriteutils.placeAngleFrom(
+            myEnemy,
+            0,
+            0,
+            Boss
+            )
+            myEnemy.setFlag(SpriteFlag.GhostThroughWalls, false)
+            myEnemy.setFlag(SpriteFlag.AutoDestroy, false)
+            myEnemy.follow(Hero, 50)
+            myEnemy.ay = 500
         } else {
         	
         }
