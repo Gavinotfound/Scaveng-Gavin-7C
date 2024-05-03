@@ -7,6 +7,7 @@ namespace SpriteKind {
     export const EnemyProjectile = SpriteKind.create()
     export const Boss = SpriteKind.create()
     export const BossProjectile = SpriteKind.create()
+    export const MedKit = SpriteKind.create()
 }
 scene.onOverlapTile(SpriteKind.Player, assets.tile`myTile0`, function (sprite, location) {
     Damage()
@@ -439,7 +440,7 @@ function StatusBarFunc () {
     statusbar = statusbars.create(20, 4, StatusBarKind.Energy)
     statusbar.value = 0
     statusbar.setColor(8, 1)
-    statusbar.max = 30
+    statusbar.max = 50
     statusbar.setStatusBarFlag(StatusBarFlag.SmoothTransition, true)
     statusbar.attachToSprite(Hero)
 }
@@ -649,7 +650,7 @@ function BKeyPressed (OnShield: boolean) {
     RefreshStatus()
 }
 function Init () {
-    info.setLife(3)
+    info.setLife(5)
     info.setScore(0)
     game.setGameOverPlayable(false, music.melodyPlayable(music.wawawawaa), false)
     game.setGameOverPlayable(true, music.melodyPlayable(music.powerUp), false)
@@ -679,6 +680,7 @@ sprites.onOverlap(SpriteKind.Projectile, SpriteKind.EnemyProjectile, function (s
 scene.onOverlapTile(SpriteKind.Player, assets.tile`myTile9`, function (sprite6, location5) {
     game.over(false, effects.dissolve)
 })
+let Airdrop: Sprite = null
 let Grenade: Sprite = null
 let Stick: Sprite = null
 let myDart: Dart = null
@@ -839,7 +841,10 @@ game.onUpdateInterval(750, function () {
             myEnemy.follow(Hero, 50)
             myEnemy.ay = 500
         } else {
-        	
+            Airdrop = sprites.create(assets.image`myImage11`, SpriteKind.Resource)
+            Airdrop.setPosition(Hero.x, Hero.y - 200)
+            Airdrop.vy = 20
+            Airdrop.setFlag(SpriteFlag.GhostThroughTiles, false)
         }
     }
 })

@@ -167,41 +167,6 @@ f f f f f f . 3 . . .
 . . . 3 . 3 . . . 
 . . f f . f f . . 
 `;
-            case "image1":
-            case "Enemy1":return img`
-........2..2....
-..2..2222222222.
-.222.4442442442.
-.424....2..2..2.
-..2.....2..2..2.
-..2..2222222222.
-..2..2442442444.
-..2..2..2..2....
-..2..2222222222.
-..2..4442442444.
-..4.....2..2....
-........4..4....
-...36666666663..
-..3333336666663.
-...11ff11111666.
-...1f2411111166.
-...111111111663.
-..fffffffffffff.
-..fffffffffffff.
-..fffffffffffff.
-.ff523f6f56f66f.
-.f223ff6f66f66f.
-.f23ff66f56f66f.
-.f23ff66f66f66f.
-.f23f666ffff66f.
-f6666ffff11ffff.
-f6666666666666f.
-f666666666666f..
-f6666fffff666f..
-.ffff.....fff...
-...1.......1....
-...f.......f....
-`;
             case "image12":
             case "myImage9":return img`
 . . . . . . . . c c c c . . . . 
@@ -364,6 +329,74 @@ faaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa2a4a5aaaaaaf222222222222222222222222222
 faaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa2a555aaaaaaf222222222222222222222222222222222222222222222222222222222222222222222222222222faaaaaaa55a22aaaaaaaaaaaaaaaaafaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaf
 faaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa2aa5aaaaaaaaf222222222222222222222222222222222222222222222222222222222222222222222222222222faaaaaaaa5542aaaaaaaaaaaaaaaaffaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaf
 ffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff
+`;
+            case "image1":
+            case "Enemy1":return img`
+.....2......2...
+....22222..2.2..
+...222....2..2..
+..22.2...2222.2.
+..2222222..2....
+.....2...2.2....
+.....2...2.2....
+.....2...2..2...
+..22.2.22...2...
+..22222.....2...
+.....2..........
+.....2..........
+...36666666663..
+..3333336666663.
+...11ff11111666.
+...1f2411111166.
+...111111111663.
+..fffffffffffff.
+..fffffffffffff.
+..fffffffffffff.
+.ff523f6f56f66f.
+.f223ff6f66f66f.
+.f23ff66f56f66f.
+.f23ff66f66f66f.
+.f23f666ffff66f.
+f6666ffff11ffff.
+f6666666666666f.
+f666666666666f..
+f6666fffff666f..
+.ffff.....fff...
+...1.......1....
+...f.......f....
+`;
+            case "image14":
+            case "myImage11":return img`
+..............777...7777......
+.......77777799887778888......
+.....7779888999.889998.99.....
+......a998.............a9.....
+......99..............aa......
+.......a..............a.......
+.......aa............aa.......
+........aa..........aa........
+.........aa.........a.........
+..........aa.......aa.........
+.....bbbbbbbbbbbbbbbbbbbbbb...
+....bbaaaaaaaaacccccbaaaaab...
+...bbbbbbbbbbbbbbbbbacaaaaab..
+..bbaaaaaaaacccc6bbaccaacaaab.
+..bbbbbbbbbbbbbbbbaccaaccccaab
+.bbaaaaaaacccc66bbacaaccaaacab
+.bbbbbbbbbbbbbbbbbacaacaaaacab
+.baaaaaacccc666bbbacacaaccacab
+.bbbbbbbbbbbbbbbbbacacaaaaccab
+.bbaaaccc666666bbbacaccaaaccab
+..bbbbbbbbbbbbbbbbacaaccccccab
+..bbaacc666666666bbacaaaaaccab
+...bbbbbbbbbbbbbb66bcccccccab.
+....bbbbbbbbbbbbbbbbbbbbbbbb..
+...66666666666666666666666666.
+.6663333333333333333333333636.
+.6666666666666666666666666666.
+66633333333333333333333363636.
+66666666666666666666666666666.
+66633333333333333333336363636.
 `;
         }
         return null;
