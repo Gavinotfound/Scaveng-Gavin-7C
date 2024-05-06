@@ -455,7 +455,7 @@ sprites.onOverlap(SpriteKind.Projectile, SpriteKind.Boss, function (sprite32, ot
 })
 sprites.onOverlap(SpriteKind.Player, SpriteKind.Resource, function (sprite32, otherSprite3) {
     otherSprite3.destroy(effects.confetti, 500)
-    ResourceAmount += 1
+    ResourceAmount += 2
     music.baDing.play()
     info.changeScoreBy(10)
     scene.cameraShake(2, 100)
@@ -704,7 +704,7 @@ let Spectate = 0
 let current_level = 0
 let Bossing = 0
 Starting_Game_Mechanics()
-current_level = 5
+current_level = 0
 start_level()
 Level_Spawn_Points()
 Init()
@@ -841,7 +841,7 @@ game.onUpdateInterval(750, function () {
             myEnemy.follow(Hero, 50)
             myEnemy.ay = 500
         } else {
-            Airdrop = sprites.create(assets.image`myImage11`, SpriteKind.Resource)
+            Airdrop = sprites.create(assets.image`myImage11`, SpriteKind.BossProjectile)
             Airdrop.setPosition(Hero.x, Hero.y - 200)
             Airdrop.vy = 20
             Airdrop.setFlag(SpriteFlag.GhostThroughTiles, false)
