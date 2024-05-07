@@ -424,7 +424,6 @@ function ExitSpectate () {
         `)
     StatusBarFunc()
     info.setScore(ScorePre)
-    ResourceAmount = EnergyPRe
 }
 sprites.onOverlap(SpriteKind.Player, SpriteKind.Reward, function (sprite3, otherSprite) {
     otherSprite.destroy(effects.confetti, 500)
@@ -465,7 +464,6 @@ sprites.onOverlap(SpriteKind.Player, SpriteKind.Resource, function (sprite32, ot
 scene.onOverlapTile(SpriteKind.Player, assets.tile`myTile2`, function (sprite2, location2) {
     ScorePre = info.score()
     Spectate += 1
-    EnergyPRe = ResourceAmount
     Spectator = sprites.create(assets.image`myImage7`, SpriteKind.SpectatorSprite)
     Spectator.setFlag(SpriteFlag.GhostThroughWalls, true)
     Spectator.setFlag(SpriteFlag.GhostThroughTiles, true)
@@ -688,7 +686,6 @@ let Stick: Sprite = null
 let myDart: Dart = null
 let Spectator: Sprite = null
 let statusbar: StatusBarSprite = null
-let EnergyPRe = 0
 let ScorePre = 0
 let AngleShield = 0
 let i = 0
