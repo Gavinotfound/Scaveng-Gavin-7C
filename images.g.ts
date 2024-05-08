@@ -3,44 +3,6 @@ namespace myImages {
 
     helpers._registerFactory("image", function(name: string) {
         switch(helpers.stringTrim(name)) {
-            case "image3":
-            case "myImage1":return img`
-. . . . . . . . . . . . . . . . 
-. . . . . . . 6 6 6 6 . . . . . 
-. . . . . . . 1 1 1 6 . . . . . 
-. . . . . . . 1 1 1 3 . . 1 . . 
-. . 1 . . . 9 7 1 7 9 . . 1 . . 
-. . 1 . . 9 9 7 9 7 9 9 . 1 . . 
-. . . 1 . 1 7 9 9 9 7 . 1 . . . 
-. . . . 1 . 9 9 9 9 9 . . . . . 
-. . . . . . 9 9 9 9 9 . . . . . 
-. . . . . . 9 9 9 9 9 . . . . . 
-. . . . . . 8 8 8 8 8 . . f f . 
-. . . . . . 8 8 . . 8 8 . 3 f . 
-. . . . . 1 1 . . . . 1 1 . . . 
-. . . . . 1 . . . . . . . . . . 
-. . . f 3 . . . . . . . . . . . 
-. . . f f . . . . . . . . . . . 
-`;
-            case "image6":
-            case "myImage4":return img`
-. . . . . . . . . . . . . . . . 
-. . . . . 6 6 6 6 . . . . . . . 
-. . . . . 6 1 1 1 . . . . . . . 
-. . 1 . . 3 1 1 1 . . . . . . . 
-. . 1 . . 9 7 1 7 9 . . . 1 . . 
-. . 1 . 9 9 7 9 7 9 9 . . 1 . . 
-. . . 1 . 7 9 9 9 7 1 . 1 . . . 
-. . . . . 9 9 9 9 9 . 1 . . . . 
-. . . . . 9 9 9 9 9 . . . . . . 
-. . . . . 9 9 9 9 9 . . . . . . 
-. f f . . 8 8 8 8 8 . . . . . . 
-. f 3 . 8 8 . . 8 8 . . . . . . 
-. . . 1 1 . . . . 1 1 . . . . . 
-. . . . . . . . . . 1 . . . . . 
-. . . . . . . . . . . 3 f . . . 
-. . . . . . . . . . . f f . . . 
-`;
             case "image7":
             case "myImage":return img`
 ....bbbbbbbbbbbbbbbbbbbbbb....
@@ -365,24 +327,105 @@ f6666fffff666f..
 ...1.......1....
 ...f.......f....
 `;
+            case "image13":
+            case "myImage10":return img`
+.bbbbbbbbbbbbbb.
+feddddddddddddef
+fddddddddddddddf
+fddddddddddddddf
+fddddddddddddddf
+fddddddddddddddf
+fddddddddddddddf
+feddddddddddddef
+ffeeeeeeeeeeeeff
+ffffffffffffffff
+fac44c7c66c3ccaf
+fac44c7c66c3ccaf
+fac44c7c66c3ccaf
+fdccccccccccccdf
+fdcbbddddddbbcdf
+fdffffffffffffdf
+fdcc4c44c3c7ccdf
+fdcc4c44c3c7ccdf
+fdcccc44ccc7ccdf
+fdccccccccccccdf
+fdcffddddddffcdf
+fdcffddddddffcdf
+fdffffffffffffdf
+ffffffffffffffff
+`;
+            case "image3":
+            case "myImage1":return img`
+. . . . . . . . . . . . . . . . 
+. . . . . . . 6 6 6 6 . . . . . 
+. . . . . . . 1 1 1 6 . . . . . 
+. . . . . . . 1 1 1 3 . . . . . 
+. . . . . . 9 7 1 7 9 . . . 1 . 
+. . . . . 9 9 7 9 7 9 9 . 1 . . 
+. . . . . 1 7 9 9 9 7 . 1 . . . 
+. 1 1 1 1 . 9 9 9 9 9 . . . . . 
+. . . . . . 9 9 9 9 9 . . . . . 
+. . . . . . 9 9 9 9 9 . . . . . 
+. . . . . . 8 8 8 8 8 . . f f . 
+. . . . . . 8 8 . . 8 8 . 3 f . 
+. . . . . 1 1 . . . . 1 1 . . . 
+. . . . . 1 . . . . . . . . . . 
+. . . f 3 . . . . . . . . . . . 
+. . . f f . . . . . . . . . . . 
+`;
+            case "image15":
+            case "myImage12":return img`
+. . . . . . . . . . . . . . . . 
+. . . . . 6 6 6 6 . . . . . . . 
+. . . . . 6 1 1 1 . . . . . . . 
+. . . . . 3 1 1 1 . . . . . . . 
+. 1 . . . 9 7 1 7 9 . . . . . . 
+. . 1 . 9 9 7 9 7 9 9 . . . . . 
+. . . 1 . 7 9 9 9 7 1 . . . . . 
+. . . . . 9 9 9 9 9 . 1 1 1 1 . 
+. . . . . 9 9 9 9 9 . . . . . . 
+. . . . . 9 9 9 9 9 . . . . . . 
+. f f . . 8 8 8 8 8 . . . . . . 
+. f 3 . 8 8 . . 8 8 . . . . . . 
+. . . 1 1 . . . . 1 1 . . . . . 
+. . . . . . . . . . 1 . . . . . 
+. . . . . . . . . . . 3 f . . . 
+. . . . . . . . . . . f f . . . 
+`;
             case "image14":
             case "myImage11":return img`
-........................
-.....ccccc...bf......f..
-....cdddddc..bbf....ff..
-...cdbbbbddb..bdf..cbf..
-..bbccccdbddc.cdf.cbbcff
-.bcc...cc4bdbccdf.cbccd4
-........f24dd4ccffcbcd44
-........ff4bd444bbbdddf.
-...cc..ccfcdbddbbbddbff.
-....cbcccffcbbdddddbbf..
-.....cfff....cbddddd4f..
-..........c..cbcffffbf..
-..........cbcbcf...fb4..
-...........cfff....ffc..
-....................ff..
-........................
+......4.4.......
+4.....444.......
+..4...44...4.4..
+..4..4444..4....
+..4..4444..4....
+..4.442244......
+....422444......
+4...424444.....4
+...4222244...244
+..42422244...24.
+..22422244......
+..24422424......
+.424222424......
+.244222424...4..
+22cc2222224.....
+2ceee2224224....
+2cec222244224...
+4ee42422444424..
+4ec42442244444..
+4ec22444222cc44.
+4c42224442eeec.4
+aeebc422444cecc4
+cec4a4426a4bebcc
+ecc34ec46b4aebcc
+ecbcce32644aebcc
+ecbbbeeeb333aecc
+eccb4ee64664ceec
+eeec4cc6ccccc4e.
+.4ecebbbebeec4c.
+..ceeeeaaeac4...
+....ccceecc.....
+.....44ccc......
 `;
         }
         return null;
@@ -390,7 +433,25 @@ f6666fffff666f..
 
     helpers._registerFactory("animation", function(name: string) {
         switch(helpers.stringTrim(name)) {
-
+            case "myAnim":
+            case "anim1":return [img`
+. . . . . . . . . . . . . . . . 
+. . . . . . . . . . . . . . . . 
+. . . . . . . . . . . . . . . . 
+. . . . . . . . . . . . . . . . 
+. . . . . . . . . . . . . . . . 
+. . . . . . . . . . . . . . . . 
+. . . . . . . . . . . . . . . . 
+. . . . . . . . . . . . . . . . 
+. . . . . . . . . . . . . . . . 
+. . . . . . . . . . . . . . . . 
+. . . . . . . . . . . . . . . . 
+. . . . . . . . . . . . . . . . 
+. . . . . . . . . . . . . . . . 
+. . . . . . . . . . . . . . . . 
+. . . . . . . . . . . . . . . . 
+. . . . . . . . . . . . . . . . 
+`];
         }
         return null;
     })
