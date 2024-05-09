@@ -602,6 +602,7 @@ function start_level () {
         effects.starField.startScreenEffect()
         tiles.setCurrentTilemap(tilemap`level7`)
     } else if (current_level == 6) {
+        Bossing = 0
         tiles.setCurrentTilemap(tilemap`level9`)
     } else {
         game.gameOver(true)
