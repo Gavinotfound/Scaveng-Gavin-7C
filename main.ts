@@ -397,17 +397,32 @@ sprites.onOverlap(SpriteKind.Player, SpriteKind.EnemyProjectile, function (sprit
 function RefreshStatus () {
     if (controller.right.isPressed()) {
         AngleShield = 10
+    } else if (controller.left.isPressed()) {
+        AngleShield = 170
+    }
+    if (characterAnimations.matchesRule(Hero, characterAnimations.rule(Predicate.NotMoving, Predicate.FacingRight))) {
         if (ShieldStatus == 1) {
             Hero.setImage(assets.image`myImage2`)
         } else {
             Hero.setImage(assets.image`myImage3`)
         }
-    } else if (controller.left.isPressed()) {
-        AngleShield = 170
+    } else if (characterAnimations.matchesRule(Hero, characterAnimations.rule(Predicate.NotMoving, Predicate.FacingLeft))) {
         if (ShieldStatus == 1) {
             Hero.setImage(assets.image`myImage8`)
         } else {
             Hero.setImage(assets.image`myImage0`)
+        }
+    } else if (characterAnimations.matchesRule(Hero, characterAnimations.rule(Predicate.MovingLeft))) {
+        if (ShieldStatus == 1) {
+            Hero.setImage(assets.image`myImage13`)
+        } else {
+            Hero.setImage(assets.image`myImage14`)
+        }
+    } else if (characterAnimations.matchesRule(Hero, characterAnimations.rule(Predicate.MovingRight))) {
+        if (ShieldStatus == 1) {
+            Hero.setImage(assets.image`myImage4`)
+        } else {
+        	
         }
     }
 }

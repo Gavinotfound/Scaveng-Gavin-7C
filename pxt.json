@@ -9,7 +9,8 @@
         "pxt-status-bar": "github:jwunderl/pxt-status-bar#v0.4.1",
         "arcade-story": "github:microsoft/arcade-storytelling#v1.0.3",
         "darts": "*",
-        "arcade-sprite-util": "github:jwunderl/arcade-sprite-util#v0.4.1"
+        "arcade-sprite-util": "github:jwunderl/arcade-sprite-util#v0.4.1",
+        "arcade-character-animations": "github:microsoft/arcade-character-animations#v0.0.2"
     },
     "files": [
         "main.blocks",

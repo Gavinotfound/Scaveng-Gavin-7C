@@ -124,12 +124,6 @@
         "tilemapTile": true,
         "displayName": "myTile17"
     },
-    "tile25": {
-        "data": "hwQQABAAAAAAAAAAAAAAsAAAAAAAAACrAAAAAAAAsKoAAAAAAACrqgAAAAAAsKrKAAAAAACrysoAAAAAAKvKygAAAAAAq6qqAAAAAACrqqoAAAAAAKusrAAAAAAAq6qsAAAAAACwqqwAAAAAAACrrAAAAAAAALCqAAAAAAAAAKsAAAAAAAAAsA==",
-        "mimeType": "image/x-mkcd-f4",
-        "tilemapTile": true,
-        "displayName": "myTile19"
-    },
     "tile24": {
         "data": "hwQQABAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAD//////////6qqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqtrd3d3d3d3d3e7u7u7u7u7uzszMzMzMzMzMu7u7u7u7u7u7u7v//////////w==",
         "mimeType": "image/x-mkcd-f4",
