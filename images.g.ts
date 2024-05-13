@@ -273,68 +273,6 @@ faaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa2a555aaaaaaf222222222222222222222222222
 faaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa2aa5aaaaaaaaf222222222222222222222222222222222222222222222222222222222222222222222222222222faaaaaaaa5542aaaaaaaaaaaaaaaaffaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaf
 ffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff
 `;
-            case "image1":
-            case "Enemy1":return img`
-.....2......2...
-....22222..2.2..
-...222....2..2..
-..22.2...2222.2.
-..2222222..2....
-.....2...2.2....
-.....2...2.2....
-.....2...2..2...
-..22.2.22...2...
-..22222.....2...
-.....2..........
-.....2..........
-...36666666663..
-..3333336666663.
-...11ff11111666.
-...1f2411111166.
-...111111111663.
-..fffffffffffff.
-..fffffffffffff.
-..fffffffffffff.
-.ff523f6f56f66f.
-.f223ff6f66f66f.
-.f23ff66f56f66f.
-.f23ff66f66f66f.
-.f23f666ffff66f.
-f6666ffff11ffff.
-f6666666666666f.
-f666666666666f..
-f6666fffff666f..
-.ffff.....fff...
-...1.......1....
-...f.......f....
-`;
-            case "image13":
-            case "myImage10":return img`
-.bbbbbbbbbbbbbb.
-feddddddddddddef
-fddddddddddddddf
-fddddddddddddddf
-fddddddddddddddf
-fddddddddddddddf
-fddddddddddddddf
-feddddddddddddef
-ffeeeeeeeeeeeeff
-ffffffffffffffff
-fac44c7c66c3ccaf
-fac44c7c66c3ccaf
-fac44c7c66c3ccaf
-fdccccccccccccdf
-fdcbbddddddbbcdf
-fdffffffffffffdf
-fdcc4c44c3c7ccdf
-fdcc4c44c3c7ccdf
-fdcccc44ccc7ccdf
-fdccccccccccccdf
-fdcffddddddffcdf
-fdcffddddddffcdf
-fdffffffffffffdf
-ffffffffffffffff
-`;
             case "image14":
             case "myImage11":return img`
 ......4.4.......
@@ -430,25 +368,6 @@ f f f f f f . . 3 f .
             case "image17":
             case "myImage14":return img`
 . . . . . . . . . 
-. . . 6 6 6 6 . . 
-. . . 1 1 1 6 . . 
-. . . 1 1 1 3 . . 
-. 9 9 7 1 7 9 9 . 
-. 1 9 7 9 7 9 1 . 
-. 1 7 9 9 9 7 1 . 
-. 1 9 9 9 9 9 1 . 
-. 1 9 9 9 9 9 1 . 
-. . 9 9 9 9 9 . . 
-. . 8 8 8 8 8 . . 
-. . 8 8 . 8 8 . . 
-. . . 1 . . 1 . . 
-. . . 1 . . 1 . . 
-. . . 3 . . 3 . . 
-. . f f . f f . . 
-`;
-            case "image18":
-            case "myImage15":return img`
-. . . . . . . . . 
 . . 6 6 6 6 . . . 
 . . 6 1 1 1 . . . 
 . . 3 1 1 1 . . . 
@@ -465,31 +384,67 @@ f f f f f f . . 3 f .
 . . 3 . . 3 . . . 
 . . f f . f f . . 
 `;
+            case "image18":
+            case "myImage15":return img`
+. . . . . . . . . 
+. . . 6 6 6 6 . . 
+. . . 1 1 1 6 . . 
+. . . 1 1 1 3 . . 
+. 9 9 7 1 7 9 9 . 
+. 1 9 7 9 7 9 1 . 
+. 1 7 9 9 9 7 1 . 
+. 1 9 9 9 9 9 1 . 
+. 1 9 9 9 9 9 1 . 
+. . 9 9 9 9 9 . . 
+. . 8 8 8 8 8 . . 
+. . 8 8 . 8 8 . . 
+. . . 1 . . 1 . . 
+. . . 1 . . 1 . . 
+. . . 3 . . 3 . . 
+. . f f . f f . . 
+`;
+            case "image1":
+            case "Enemy1":return img`
+................
+......2..2......
+...22222222222..
+...24424424444..
+...2..2..2......
+...2222222222...
+...4442442442...
+......2..2..2...
+..22222222222...
+..44442442444...
+......4..4......
+................
+...36666666663..
+..6666666666663.
+...11ff11111666.
+...1f2411111166.
+...111111111663.
+..fffffffffffff.
+..fffffffffffff.
+..fffffffffffff.
+.ff523f6f56f66f.
+.f223ff6f66f66f.
+.f23ff66f56f66f.
+.f23ff66f66f66f.
+.f23f666ffff66f.
+f6666ffff11ffff.
+f6666666666666f.
+f666666666666f..
+f6666fffff666f..
+.ffff.....fff...
+...1.......1....
+...f.......f....
+`;
         }
         return null;
     })
 
     helpers._registerFactory("animation", function(name: string) {
         switch(helpers.stringTrim(name)) {
-            case "myAnim":
-            case "anim1":return [img`
-. . . . . . . . . . . . . . . . 
-. . . . . . . . . . . . . . . . 
-. . . . . . . . . . . . . . . . 
-. . . . . . . . . . . . . . . . 
-. . . . . . . . . . . . . . . . 
-. . . . . . . . . . . . . . . . 
-. . . . . . . . . . . . . . . . 
-. . . . . . . . . . . . . . . . 
-. . . . . . . . . . . . . . . . 
-. . . . . . . . . . . . . . . . 
-. . . . . . . . . . . . . . . . 
-. . . . . . . . . . . . . . . . 
-. . . . . . . . . . . . . . . . 
-. . . . . . . . . . . . . . . . 
-. . . . . . . . . . . . . . . . 
-. . . . . . . . . . . . . . . . 
-`];
+
         }
         return null;
     })
@@ -497,7 +452,7 @@ f f f f f f . . 3 f .
     helpers._registerFactory("song", function(name: string) {
         switch(helpers.stringTrim(name)) {
             case "song1":
-            case "mySong":return hex`0078000408020106001c00010a006400f4016400000400000000000000000000000000000000021a0000000400011904000800021d2408000c0001200c001000021d24`;
+            case "mySong":return hex`004c000408150106001c00010a006400f401640000040000000000000000000000000000000002620200000800011908001000021d2410001800012018002000021d2420002800011928003000021d2430003800012038004000021d2440004800011948005000021d2450005800012058006000021d2460006800011968007000021d2470007800012078008000021d2480008800011988009000021d249000980001209800a000021d24a000a8000119a800b000021d24b000b8000120b800c000021d24c000c8000119c800d000021d24d000d8000120d800e000021d24e000e8000119e800f000021d24f000f8000120f8000001021d2400010401012404010801012508010c0101270c01100101291001140101291401180101271c012001012420012801012528012c0101242c013001012038014001012440014401012444014801012948014c0101274c015001012950015401012954015801012c58015c01012c5c016001012960016801012968017001012770017801012778018001012480018401012c84018801012a88018c01012a8c01900101259001940101259401980101229801a0010125a001a4010124a401a8010120a801ac010120ac01b0010129b001b4010129b401b8010127b801bc010120bc01c0010122c001c401012cc401c801012ac801cc01012acc01d0010125d001d4010125d401d8010122d801e001012ce001e401012ae401e801012ae801ec010129ec01f0010127f001f4010127f401f8010124f80100020120080210020224291002180202202518022002022429280230020224293002380202202538024002022429480250020224295002580202202558026002022429680270020224297002780202202778028002022429800288020129`;
         }
         return null;
     })

@@ -7,7 +7,6 @@ namespace SpriteKind {
     export const EnemyProjectile = SpriteKind.create()
     export const Boss = SpriteKind.create()
     export const BossProjectile = SpriteKind.create()
-    export const MedKit = SpriteKind.create()
 }
 scene.onOverlapTile(SpriteKind.Player, assets.tile`myTile0`, function (sprite, location) {
     Damage()
@@ -400,29 +399,17 @@ function RefreshStatus () {
     } else if (controller.left.isPressed()) {
         AngleShield = 170
     }
-    if (characterAnimations.matchesRule(Hero, characterAnimations.rule(Predicate.NotMoving, Predicate.FacingRight))) {
-        if (ShieldStatus == 1) {
-            Hero.setImage(assets.image`myImage2`)
-        } else {
-            Hero.setImage(assets.image`myImage3`)
-        }
-    } else if (characterAnimations.matchesRule(Hero, characterAnimations.rule(Predicate.NotMoving, Predicate.FacingLeft))) {
-        if (ShieldStatus == 1) {
-            Hero.setImage(assets.image`myImage8`)
-        } else {
-            Hero.setImage(assets.image`myImage0`)
-        }
-    } else if (characterAnimations.matchesRule(Hero, characterAnimations.rule(Predicate.MovingLeft))) {
+    if (characterAnimations.matchesRule(Hero, characterAnimations.rule(Predicate.MovingLeft))) {
         if (ShieldStatus == 1) {
             Hero.setImage(assets.image`myImage13`)
         } else {
-            Hero.setImage(assets.image`myImage14`)
+            Hero.setImage(assets.image`myImage15`)
         }
     } else if (characterAnimations.matchesRule(Hero, characterAnimations.rule(Predicate.MovingRight))) {
         if (ShieldStatus == 1) {
             Hero.setImage(assets.image`myImage4`)
         } else {
-        	
+            Hero.setImage(assets.image`myImage14`)
         }
     }
 }
@@ -581,7 +568,7 @@ function StatusBarFunc () {
 }
 sprites.onOverlap(SpriteKind.Projectile, SpriteKind.Boss, function (sprite32, otherSprite3) {
     sprites.destroy(sprite32, effects.halo, 150)
-    info.changeScoreBy(30)
+    info.changeScoreBy(20)
     BossHP += -1
     statusbar2.value = BossHP
     if (BossHP == 0) {
