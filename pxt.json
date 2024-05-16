@@ -1,6 +1,6 @@
 {
     "name": "Scavenge Gavin 7C",
-    "version": "1.3.0",
+    "version": "2.0.0",
     "description": "",
     "dependencies": {
         "device": "*",
